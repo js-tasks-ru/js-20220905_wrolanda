@@ -5,10 +5,12 @@
  * @returns {object} - returns the new object
  */
 export const pick = (obj, ...fields) => {
-  const argList = Object.entries(fields);
   const resObj = {};
-  argList.forEach(elem => {
-    resObj[elem[1]] = obj[elem[1]];
-  })
+
+  for (const [key, value] of Object.entries(obj)) {
+    if (fields.includes(key)) {
+      resObj[key] = value;
+    }
+  }
   return resObj;
-};
+}

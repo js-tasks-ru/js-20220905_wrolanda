@@ -5,10 +5,12 @@
  * @returns {object} - returns the new object
  */
 export const omit = (obj, ...fields) => {
-  const argList = Object.entries(fields);
-  const resObj = Object.assign({}, obj);
-  argList.forEach(elem => {
-    delete resObj[elem[1]];
-  })
+  const resObj = {};
+
+  for (const [key, value] of Object.entries(obj)) {
+    if (!fields.includes(key)) {
+      resObj[key] = value;
+    }
+  }
   return resObj;
 };
