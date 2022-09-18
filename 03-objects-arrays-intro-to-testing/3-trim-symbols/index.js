@@ -12,7 +12,7 @@ export function trimSymbols(string, size) {
   const result = [];
 
   for (const char of string) {
-    if (result.at(-1) === char) {
+    if (result[result.length - 1] === char) {
       if (count < size) {
         result.push(char);
         count += 1;
